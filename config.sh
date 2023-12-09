@@ -20,14 +20,18 @@ DEVICE_CODENAME=""
 AUTO_ADAPT=""
 LUNCH_NAME=""
 BACON_NAME=""
+SYNC_BEFORE_BUILD="" #True by default
+BUILD_J="" #default by default - don't know what does that mean? ask google "make -j"
 
 #Upload stuff - Optional
 UPLOAD_TYPE=""
 UPLOAD_RECOVERY=""
 TG_USER=""
 
-#Google Drive - Optional
-GD_PATH=""
+#Telegram - Optional
+TG_TOKEN=""
+TG_CHAT=""
+TG_TOPIC=""
 
 #Github Releases & OTA - Optional
 GH_USER=""
@@ -59,9 +63,5 @@ SF_PATH=""
 FTP_USER=""
 FTP_PASS=""
 FTP_UPLOAD_URL=""
-
-#Telegram - Optional
-TG_TOKEN=""
-TG_CHAT=""
 
 source build.sh
