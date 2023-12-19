@@ -1,11 +1,10 @@
 # Buildbot.sh
-Android Building Script - Script that can build for multiple devices
+Android Building Script - Script that can assist building for one or multiple devices
 
 Please read the whole README before forking this repo
 
 # DISCLAIMER
 * This script is only for Debian, Arch and Fedora Linux based operating systems.
-* DO NOT use this script if you never built Android before.
 * I am not responsible for anything that may happen to your PC/phone by building/flashing
 any custom ROMs using this script. (Bricked devices, dead SD cards, dead hard drives, CPU overheating,
 GPU burning, thermonuclear war, Seal mad or you getting fired because the alarm app
