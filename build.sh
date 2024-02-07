@@ -1,9 +1,8 @@
 #!/bin/bash
 
 #
-# Copyright (C) 2022 Orel6505
+# Copyright (C) 2024 ThePrateekBhatia
 #
-# SPDX-License-Identifier: GNU General Public License v3.0
 #
 
 MY_DIR=$(pwd)
