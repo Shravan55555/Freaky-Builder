@@ -1,10 +1,8 @@
 #!/bin/bash
-
 #
 # Copyright (C) 2024 ThePrateekBhatia
 #
 #
-
 ## Need To Fill
 #Sync - Required
 ROM_NAME=""
@@ -20,7 +18,10 @@ AUTO_ADAPT=""
 LUNCH_NAME=""
 BACON_NAME=""
 SYNC_BEFORE_BUILD="" #True by default
-BUILD_J="" #default by default - don't know what does that mean? ask google "make -j"
+
+#Choose how many cores to use while building(4,6,8,12,16,32...)
+#Can leave empty too..
+BUILD_J=""
 
 #Upload stuff - Optional
 UPLOAD_TYPE=""
@@ -37,20 +38,32 @@ GH_USER=""
 GH_TOKEN=""
 GH_REPO_URL=""
 OTA_JSON=""
-OTA_LIKE="" #LOS/PE/crDroid/Evox
-CUSTOM_ROM_ZIP_DOWNLOAD_URL="" #Mainly for FTP and gdrive users
-MAINTAINERS="" #PE and Evox specific
-XDA_TREAD="" #PE and Evox specific
-DONATE_URL="" #PE and Evox specific
-NEWS_URL="" #PE and Evox specific
-WEBSITE_URL="" #PE and Evox specific
-GH_MAINTAINERS="" #for PixelExperience only
-MAINTAINER_URL="" #evox specific
-BUILD_TYPE="" #crDroid specific
-FIRMWARE_URL="" #crDroid specific
-MODEM_URL="" #crDroid specific
-BOOTLOADER_URL="" #crDroid specific
-RECOVERY_URL="" #crDroid specific
+
+#LOS/PE/crDroid/Evox
+OTA_LIKE=""
+
+#Mainly for FTP and gdrive users
+CUSTOM_ROM_ZIP_DOWNLOAD_URL=""
+
+#PE and Evox specific
+MAINTAINERS=""
+XDA_TREAD=""
+DONATE_URL=""
+NEWS_URL=""
+WEBSITE_URL=""
+
+#for PixelExperience only
+GH_MAINTAINERS=""
+
+#evox specific
+MAINTAINER_URL=""
+
+#crDroid specific
+BUILD_TYPE=""
+FIRMWARE_URL=""
+MODEM_URL=""
+BOOTLOADER_URL=""
+RECOVERY_URL=""
 
 #SourceForge - Optional
 SF_USER=""

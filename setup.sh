@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 # Copyright (C) 2024 ThePrateekBhatia
 #
@@ -25,11 +24,11 @@ Setup_Ubuntu () {
         ;;
         *"20.04"*)
             sudo apt-get install openssh-client sshpass coreutils ucommon-utils git ccache lzop bison build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libghc-bzlib-dev squashfs-tools pngcrush liblz4-tool optipng libc6-dev-i386 gcc-multilib libssl-dev gnupg flex lib32ncurses-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev xsltproc unzip libffi-dev libxml2-dev libxslt1-dev libjpeg8-dev fontconfig libncurses5-dev libncurses5 libncurses5:i386 python-is-python3 protobuf-compiler
-            Setup_Repo
+            Setup_ENV
         ;;
         *)
             sudo apt-get install openssh-client sshpass coreutils ucommon-utils git ccache lzop bison build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libghc-bzlib-dev squashfs-tools pngcrush liblz4-tool optipng libc6-dev-i386 gcc-multilib libssl-dev gnupg flex lib32ncurses-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev xsltproc unzip libffi-dev libxml2-dev libxslt1-dev libjpeg8-dev fontconfig libncurses5-dev libncurses5 libncurses5:i386 python-is-python3 protobuf-compiler
-            Setup_Repo
+            Setup_ENV
         ;;
     esac
 }
@@ -51,7 +50,7 @@ Setup_Arch () {
         cd ..
         rm -rf "${PACKAGE}"
     done
-    Setup_Repo
+    Setup_ENV
 }
 
 Setup_Fedora () {
@@ -96,18 +95,27 @@ Setup_Fedora () {
         zip \
         zlib-devel \
         zlib-devel.i686
-    Setup_Repo
+    Setup_ENV
     curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v21.1/protoc-21.1-linux-x86_64.zip
     sudo unzip -o protoc-21.1-linux-x86_64.zip -d /usr/local bin/protoc
     sudo unzip -o protoc-21.1-linux-x86_64.zip -d /usr/local 'include/*'
     rm -f protoc-21.1-linux-x86_64.zip
 }
 
-Setup_Repo () {
-    if [ -d /bin ]
-        mkdir ~/bin
+Setup_ENV () {
+    if [[ "${OS_NAME}" == *"Ubuntu"* ]] || [[ "${OS_NAME2}" == *"Ubuntu"* ]]; then
+        git clone https://github.com/akhilnarang/scripts.git
+        .scripts/setup/android_build_env.sh
+    elif [[ "${OS_NAME}" == *"Arch"* ]] || [[ "${OS_NAME2}" == *"Arch"* ]]; then
+        git clone https://github.com/akhilnarang/scripts.git
+        .scripts/setup/arch-manjaro.sh
+    elif [[ "${OS_NAME}" == *"Fedora"* ]] || [[ "${OS_NAME2}" == *"Fedora"* ]]; then
+        git clone https://github.com/akhilnarang/scripts.git
+        .scripts/setup/fedora.sh
     fi
-    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    mkdir -p ~/bin
+    mkdir -p ~/android
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     chmod a+x ~/bin/repo
 }
 
